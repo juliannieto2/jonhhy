@@ -1,6 +1,23 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Alert, Linking, ScrollView, StyleSheet, Text, View } from "react-native";
 import MiBoton from "../components/MiBoton";
+
+// Datos de contacto que se muestran en las alertas (Reto 2)
+const contacto = {
+  correo: "juliannieto321238@gmail.com",
+  telefono: "+57 300 000 0000",
+  linkedin: "https://www.linkedin.com/in/juliannieto",
+  facebook: "https://www.facebook.com/juliannieto",
+  github: "https://github.com/juliannieto2",
+};
+
+// Muestra el dato en una alerta y ofrece abrirlo (correo, teléfono o enlace)
+const mostrarContacto = (titulo: string, dato: string, url: string) => {
+  Alert.alert(titulo, dato, [
+    { text: "Cerrar", style: "cancel" },
+    { text: "Abrir", onPress: () => Linking.openURL(url) },
+  ]);
+};
 
 const Inicio = () => {
   return (
@@ -27,19 +44,35 @@ const Inicio = () => {
           textoBoton="Enviar Correo"
           nombreIcono="mail"
           colorBoton="#E8B464"
-          onPress={() => Alert.alert("Contacto", "Enviar correo")}
+          onPress={() =>
+            mostrarContacto("Correo", contacto.correo, `mailto:${contacto.correo}`)
+          }
         />
         <MiBoton
           textoBoton="Llamar"
           nombreIcono="call"
           colorBoton="#22c55e"
-          onPress={() => Alert.alert("Contacto", "Llamar")}
+          onPress={() =>
+            mostrarContacto("Teléfono", contacto.telefono, `tel:${contacto.telefono}`)
+          }
         />
         <MiBoton
           textoBoton="Ver Perfil LinkedIn"
           nombreIcono="logo-linkedin"
           colorBoton="#0a66c2"
-          onPress={() => Alert.alert("Contacto", "LinkedIn")}
+          onPress={() => mostrarContacto("LinkedIn", contacto.linkedin, contacto.linkedin)}
+        />
+        <MiBoton
+          textoBoton="Facebook"
+          nombreIcono="logo-facebook"
+          colorBoton="#1877f2"
+          onPress={() => mostrarContacto("Facebook", contacto.facebook, contacto.facebook)}
+        />
+        <MiBoton
+          textoBoton="Repositorios GitHub"
+          nombreIcono="logo-github"
+          colorBoton="#24292f"
+          onPress={() => mostrarContacto("GitHub", contacto.github, contacto.github)}
         />
       </View>
     </ScrollView>
