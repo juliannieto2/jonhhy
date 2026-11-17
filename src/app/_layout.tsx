@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { ComponentProps } from "react";
+import { Platform } from "react-native";
 
 type NombreIcono = ComponentProps<typeof Ionicons>["name"];
 
@@ -23,7 +24,9 @@ export default function Layout() {
           tabBarInactiveTintColor: "#64748b",
           headerTitleAlign: "center",
           headerTitleStyle: { fontWeight: "bold", color: "#0f172a" },
-          tabBarLabelStyle: { fontSize: 12, fontWeight: "600" },
+          tabBarLabelStyle: { fontWeight: "600" },
+          // En web la barra queda muy baja y recorta las etiquetas; en el celular se deja el alto por defecto
+          tabBarStyle: Platform.OS === "web" ? { height: 60 } : undefined,
         }}
       >
         {/* Pestaña de Inicio */}
