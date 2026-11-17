@@ -15,6 +15,42 @@ export default function Layout() {
           ),
         }}
       />
+
+      {/* Pestaña de Estudios */}
+      <Tabs.Screen
+        name="estudios"
+        options={{
+          title: "Estudios",
+          headerTitle: "Formación Académica",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="school-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      {/* Pestaña de Experiencia */}
+      <Tabs.Screen
+        name="experiencia"
+        options={{
+          title: "Experiencia",
+          headerTitle: "Experiencia Laboral",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="briefcase-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      {/* Pestaña de Hobbies */}
+      <Tabs.Screen
+        name="hobbies"
+        options={{
+          title: "Hobbies",
+          headerTitle: "Intereses y Hobbies",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="heart-outline" size={size} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
