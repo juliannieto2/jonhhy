@@ -1,5 +1,16 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
+import { ComponentProps } from "react";
+
+type NombreIcono = ComponentProps<typeof Ionicons>["name"];
+
+// Devuelve la función tabBarIcon para el ícono indicado.
+// El color que entrega Tabs se convierte a string porque usamos colores hexadecimales.
+const iconoPestana =
+  (nombre: NombreIcono) =>
+  ({ color, size }: { color: unknown; size: number }) => (
+    <Ionicons name={nombre} size={size} color={color as string} />
+  );
 
 export default function Layout() {
   return (
@@ -10,9 +21,7 @@ export default function Layout() {
         options={{
           title: "Inicio",
           headerTitle: "Datos Personales",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-outline" size={size} color={color} />
-          ),
+          tabBarIcon: iconoPestana("person-outline"),
         }}
       />
 
@@ -22,9 +31,7 @@ export default function Layout() {
         options={{
           title: "Estudios",
           headerTitle: "Formación Académica",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="school-outline" size={size} color={color} />
-          ),
+          tabBarIcon: iconoPestana("school-outline"),
         }}
       />
 
@@ -34,9 +41,7 @@ export default function Layout() {
         options={{
           title: "Experiencia",
           headerTitle: "Experiencia Laboral",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="briefcase-outline" size={size} color={color} />
-          ),
+          tabBarIcon: iconoPestana("briefcase-outline"),
         }}
       />
 
@@ -46,9 +51,7 @@ export default function Layout() {
         options={{
           title: "Hobbies",
           headerTitle: "Intereses y Hobbies",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="heart-outline" size={size} color={color} />
-          ),
+          tabBarIcon: iconoPestana("heart-outline"),
         }}
       />
     </Tabs>
