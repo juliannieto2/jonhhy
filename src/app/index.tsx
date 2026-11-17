@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
+import MiBoton from "../components/MiBoton";
 
 const Inicio = () => {
   return (
@@ -18,6 +19,28 @@ const Inicio = () => {
           JavaScript, TypeScript, HTML5, CSS y gestión de bases de datos relacionales
           (MySQL) y no relacionales (MongoDB).
         </Text>
+      </View>
+
+      <View style={estilos.seccion}>
+        <Text style={estilos.subtitulo}>Contacto</Text>
+        <MiBoton
+          textoBoton="Enviar Correo"
+          nombreIcono="mail"
+          colorBoton="#E8B464"
+          onPress={() => Alert.alert("Contacto", "Enviar correo")}
+        />
+        <MiBoton
+          textoBoton="Llamar"
+          nombreIcono="call"
+          colorBoton="#22c55e"
+          onPress={() => Alert.alert("Contacto", "Llamar")}
+        />
+        <MiBoton
+          textoBoton="Ver Perfil LinkedIn"
+          nombreIcono="logo-linkedin"
+          colorBoton="#0a66c2"
+          onPress={() => Alert.alert("Contacto", "LinkedIn")}
+        />
       </View>
     </ScrollView>
   );
