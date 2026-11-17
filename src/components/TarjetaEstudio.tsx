@@ -13,8 +13,12 @@ const TarjetaEstudio = ({ titulo, institucion, anio, enCurso }: Props) => {
     <View style={[estilos.tarjeta, enCurso ? estilos.enCurso : estilos.finalizado]}>
       <Text style={estilos.titulo}>{titulo}</Text>
 
-      {/* Si está en curso, muestra un texto indicativo */}
-      {enCurso && <Text style={estilos.badge}>En Curso</Text>}
+      {/* Reto 1: insignia "En Curso" en forma de cápsula morada */}
+      {enCurso && (
+        <View style={estilos.capsula}>
+          <Text style={estilos.textoCapsula}>En Curso</Text>
+        </View>
+      )}
 
       <Text style={estilos.subtitulo}>{institucion}</Text>
       <Text style={estilos.anio}>{anio}</Text>
@@ -31,5 +35,13 @@ const estilos = StyleSheet.create({
   titulo: { fontSize: 16, fontWeight: "bold" },
   subtitulo: { fontSize: 14, color: "#555555" },
   anio: { fontSize: 12, color: "#888888" },
-  badge: { color: "#6366f1", fontWeight: "bold", fontSize: 12 },
+  capsula: {
+    alignSelf: "flex-start",
+    backgroundColor: "#6366f1",
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    marginVertical: 4,
+  },
+  textoCapsula: { color: "#ffffff", fontWeight: "bold", fontSize: 12 },
 });
