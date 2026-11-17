@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { ComponentProps } from "react";
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { mostrarAlerta } from "../utils/alerta";
 
 type NombreIcono = ComponentProps<typeof Ionicons>["name"];
 
@@ -14,7 +15,7 @@ type Props = {
 
 const TarjetaHobby = ({ nombre, icono, descripcion, color, detalle }: Props) => {
   // Reto 3: al presionar la tarjeta se muestran los detalles del pasatiempo
-  const verDetalle = () => Alert.alert(nombre, detalle);
+  const verDetalle = () => mostrarAlerta(nombre, detalle);
 
   return (
     <TouchableOpacity style={estilos.tarjeta} onPress={verDetalle} activeOpacity={0.7}>

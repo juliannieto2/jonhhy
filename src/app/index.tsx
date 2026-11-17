@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Alert, Linking, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Linking, ScrollView, StyleSheet, Text, View } from "react-native";
 import MiBoton from "../components/MiBoton";
+import { mostrarAlerta } from "../utils/alerta";
 
 // Datos de contacto que se muestran en las alertas (Reto 2)
 const contacto = {
@@ -13,10 +14,7 @@ const contacto = {
 
 // Muestra el dato en una alerta y ofrece abrirlo (correo, teléfono o enlace)
 const mostrarContacto = (titulo: string, dato: string, url: string) => {
-  Alert.alert(titulo, dato, [
-    { text: "Cerrar", style: "cancel" },
-    { text: "Abrir", onPress: () => Linking.openURL(url) },
-  ]);
+  mostrarAlerta(titulo, dato, { texto: "Abrir", onPress: () => Linking.openURL(url) });
 };
 
 const Inicio = () => {
