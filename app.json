@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "jonhhy",
+    "name": "Hoja de Vida",
     "slug": "jonhhy",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -24,6 +24,10 @@
     "plugins": [
       "expo-router",
       "expo-status-bar"
-    ]
+    ],
+    "scheme": "hojadevida",
+    "experiments": {
+      "typedRoutes": true
+    }
   }
 }
